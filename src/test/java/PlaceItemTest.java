@@ -9,6 +9,24 @@ public class PlaceItemTest {
     public void PlaceTrueItemTest() {
         assertTrue(PlaceOrderData.PlaceOrder(new PlaceOrderData("Šluota", "Šluoja viską, ypač vyrus pro duris", "9999", "Vilnius", "861112222", "asigalis@mail.com")));
     }
+    @Test
+    public void PlaceItemWithNoTitleTest() {
+        assertFalse(PlaceOrderData.PlaceOrder(new PlaceOrderData("", "Šluoja viską, ypač vyrus pro duris", "9999", "Vilnius", "861112222", "asigalis@mail.com")));
+    }
+    @Test
+    public void PlaceItemWithNoDescriptionTest() {
+        assertFalse(PlaceOrderData.PlaceOrder(new PlaceOrderData("Šluota", "", "9999", "Vilnius", "861112222", "asigalis@mail.com")));
+    }
+    @Test
+    public void PlaceItemWithNoPhoneNumberTest() {
+        assertFalse(PlaceOrderData.PlaceOrder(new PlaceOrderData("Šluota", "Šluoja viską, ypač vyrus pro duris", "9999", "Vilnius", "", "asigalis@mail.com")));
+    }
+    @Test
+    public void PlaceEmptyItemTest() {
+        assertFalse(PlaceOrderData.PlaceOrder(new PlaceOrderData("", "", "", "", "", "")));
+    }
+
+
 
     @BeforeClass
     public void beforeClass() {
@@ -16,7 +34,9 @@ public class PlaceItemTest {
         PlaceOrderData.driver = new ChromeDriver();
         PlaceOrderData.driver.manage().window().maximize();
         PlaceOrderData.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        PlaceOrderData.driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=Technika_Foto&actionId=Siulo&returnurl=%2Fskelbimas%2Fvaldymas%2F1041187%2F023db122-3158-4f2f-b2ab-a08cff1b8cec");
+        PlaceOrderData.driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=Technika_Foto&actionId=Siulo&returnurl=%2Fskelbimai%2Fbuitis-laisvalaikis%2Fantikvariatas");
         PlaceOrderData.driver.findElement(By.xpath("/html/body/div[5]/div[2]/div[1]/div[2]/div[2]/button[1]")).click();
+       // PlaceOrderData.driver.get("https://elenta.lt/patalpinti/ivesti-informacija?categoryId=Technika_Foto&actionId=Siulo&returnurl=%2Fskelbimas%2Fvaldymas%2F1041187%2F023db122-3158-4f2f-b2ab-a08cff1b8cec");
+       // PlaceOrderData.driver.findElement(By.xpath("/html/body/div[5]/div[2]/div[1]/div[2]/div[2]/button[1]")).click();
     }
 }

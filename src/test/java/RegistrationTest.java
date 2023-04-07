@@ -7,7 +7,7 @@ public class RegistrationTest {
 
     @Test(priority = 1)
     public void registerUserTest() {
-        assertTrue(UserRegistrationData.registerUser(new UserRegistrationData("Grybųgrybaass", "grybugrybas12223334@gmail.com", "balandisuzlango", "balandisuzlango")));
+        assertTrue(UserRegistrationData.registerUser(new UserRegistrationData("Grybųgrybas777", "grybugrsybas7777@gmail.com", "balandisuzlango", "balandisuzlango")));
     }
 
     @Test(priority = 2)

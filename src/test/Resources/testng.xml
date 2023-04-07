@@ -1,0 +1,21 @@
+<suite name="AddItemTest">
+    <test name="FirstTest">
+        <classes>
+            <class name="RegistrationTest">
+                <methods>
+                    <include name="registerUserTest"/>
+                </methods>
+            </class>
+            <class name = "LogInTest">
+                <methods>
+                    <include name ="LogInCorrectTest"/>
+                </methods>
+            </class>
+            <class name = "PlaceItemTest">
+                <methods>
+                    <include name = "PlaceTrueItemTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
